@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCOPE — Strength & Conditioning Performance</title>
+<meta name="description" content="Entrenamiento personal basado en ciencia. S&C, Halterofilia, Hyrox y CrossFit. Online y presencial para países hispanoparlantes.">
+<meta property="og:title" content="SCOPE — Train with science. Perform with purpose.">
+<meta property="og:description" content="Entrenamiento personal de alto nivel basado en ciencia. Especialistas en S&C, Halterofilia, Hyrox y CrossFit.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0A0A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SCOPE Performance",
+  "description": "Entrenamiento personal basado en ciencia. S&C, Halterofilia, Hyrox y CrossFit.",
+  "url": "https://scopeperformance.es",
+  "telephone": "+34000000000",
+  "priceRange": "€€",
+  "serviceType": ["Entrenamiento personal", "Strength & Conditioning", "Halterofilia", "Hyrox", "CrossFit"],
+  "areaServed": "Países hispanoparlantes"
+}
+</script>
+
+<style>
+:root {
+  --onyx: #0A0A0A;
+  --onyx2: #111111;
+  --onyx3: #1A1A1A;
+  --gold: #C8A96E;
+  --gold-dim: #8A6E40;
+  --gold-pale: #F0DEB8;
+  --offwhite: #F0EDE6;
+  --steel: #2B3A4A;
+  --steel-light: #3D5066;
+  --mid: #4A4540;
+  --muted: #888078;
+  --faint: #222020;
+  --font-head: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--onyx);
+  color: var(--offwhite);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--gold); color: var(--onyx); }
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--onyx2); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  height: 72px;
+  background: rgba(10,10,10,0.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid rgba(200,169,110,0.12);
+  transition: all 0.4s var(--ease);
+}
+nav.scrolled { height: 58px; background: rgba(10,10,10,0.96); }
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 26px;
+  letter-spacing: 0.15em;
+  color: var(--offwhite);
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+  font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+  color: var(--muted); text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold); color: var(--onyx);
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 22px; border-radius: 2px;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--gold-pale); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--offwhite); transition: all 0.3s; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 5vw 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 40%, rgba(43,58,74,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 70%, rgba(200,169,110,0.08) 0%, transparent 60%),
+    var(--onyx);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.035;
+  background-image: linear-gradient(rgba(200,169,110,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,169,110,1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-crosshair {
+  position: absolute; top: 18%; right: 8%; z-index: 0;
+  width: 320px; height: 320px; opacity: 0.06;
+}
+.hero-crosshair svg { width: 100%; height: 100%; }
+.hero-content { position: relative; z-index: 1; max-width: 860px; }
+.hero-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-label::before {
+  content: ''; display: block; width: 28px; height: 1px; background: var(--gold);
+}
+.hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(64px, 10vw, 140px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--offwhite);
+  margin-bottom: 32px;
+}
+.hero-h1 em {
+  font-style: normal; color: var(--gold);
+  display: block;
+}
+.hero-sub {
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--muted); font-weight: 300;
+  max-width: 480px; line-height: 1.65;
+  margin-bottom: 48px;
+}
+.hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: var(--onyx);
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 16px 36px; border-radius: 2px;
+  transition: all 0.25s var(--ease);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-primary:hover { background: var(--gold-pale); transform: translateY(-1px); }
+.btn-secondary {
+  font-size: 12px; font-weight: 400; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(200,169,110,0.3);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+.hero-stats {
+  position: absolute; right: 5vw; bottom: 80px; z-index: 1;
+  display: flex; flex-direction: column; gap: 24px; text-align: right;
+}
+.hero-stat-num {
+  font-family: var(--font-head); font-size: 36px; letter-spacing: 0.04em;
+  color: var(--gold); line-height: 1;
+}
+.hero-stat-label {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+}
+.hero-scroll::after {
+  content: ''; display: block; width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ── SECTIONS ── */
+section { padding: 120px 5vw; }
+.section-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content:''; display:block; width:20px; height:1px; background:var(--gold); }
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 5vw, 72px);
+  letter-spacing: 0.02em; line-height: 0.95;
+  color: var(--offwhite);
+  margin-bottom: 20px;
+}
+.section-sub {
+  font-size: 16px; color: var(--muted); font-weight: 300;
+  max-width: 520px; line-height: 1.7; margin-bottom: 64px;
+}
+.gold-rule { width: 48px; height: 1.5px; background: var(--gold); margin-bottom: 48px; }
+
+/* ── PILLARS ── */
+#pillars { background: var(--onyx2); border-top: 0.5px solid rgba(200,169,110,0.1); }
+.pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 0; }
+.pillar {
+  padding: 56px 40px;
+  background: var(--onyx3);
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.pillar::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 1.5px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.pillar:hover::before { transform: scaleX(1); }
+.pillar:hover { background: rgba(26,26,26,0.9); }
+.pillar-num {
+  font-family: var(--font-head); font-size: 80px; letter-spacing: -0.02em;
+  color: rgba(200,169,110,0.08); line-height: 1;
+  margin-bottom: -20px;
+}
+.pillar-title {
+  font-family: var(--font-head); font-size: 28px; letter-spacing: 0.05em;
+  color: var(--offwhite); margin-bottom: 16px;
+}
+.pillar-text { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── SPECIALTIES ── */
+#specialties { background: var(--onyx); }
+.specs-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+.spec-card {
+  padding: 56px 48px;
+  background: var(--onyx3);
+  border: 0.5px solid rgba(200,169,110,0.06);
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: all 0.35s var(--ease);
+}
+.spec-card:hover { border-color: rgba(200,169,110,0.2); }
+.spec-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.spec-card:hover::after { transform: scaleX(1); }
+.spec-icon {
+  width: 48px; height: 48px; border: 0.5px solid rgba(200,169,110,0.3);
+  border-radius: 2px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 28px; color: var(--gold); font-size: 22px;
+}
+.spec-title {
+  font-family: var(--font-head); font-size: 32px; letter-spacing: 0.06em;
+  color: var(--offwhite); margin-bottom: 12px;
+}
+.spec-text { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 380px; }
+.spec-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.spec-tag {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  color: var(--gold-dim); border: 0.5px solid rgba(200,169,110,0.2);
+  padding: 4px 10px; border-radius: 2px;
+}
+
+/* ── PLANS ── */
+#plans { background: var(--onyx2); }
+.plans-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+.plan-card {
+  padding: 40px 28px;
+  background: var(--onyx3);
+  border: 0.5px solid rgba(200,169,110,0.06);
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: all 0.3s var(--ease);
+}
+.plan-card.featured {
+  background: var(--steel);
+  border-color: var(--gold);
+}
+.plan-card.featured::before {
+  content: 'MÁS POPULAR'; position: absolute; top: 0; left: 0; right: 0;
+  text-align: center; padding: 6px;
+  background: var(--gold); color: var(--onyx);
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em;
+}
+.plan-card.featured { padding-top: 52px; }
+.plan-name {
+  font-family: var(--font-head); font-size: 22px; letter-spacing: 0.1em;
+  color: var(--offwhite); margin-bottom: 6px;
+}
+.plan-subtitle { font-size: 12px; color: var(--muted); margin-bottom: 28px; }
+.plan-price {
+  font-family: var(--font-head); font-size: 52px; letter-spacing: -0.01em;
+  color: var(--gold); line-height: 1; margin-bottom: 4px;
+}
+.plan-price-note { font-size: 11px; color: var(--muted); margin-bottom: 32px; }
+.plan-features { list-style: none; flex: 1; margin-bottom: 32px; }
+.plan-features li {
+  font-size: 13px; color: var(--muted); padding: 8px 0;
+  border-bottom: 0.5px solid rgba(200,169,110,0.06);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.plan-features li::before {
+  content: '–'; color: var(--gold); flex-shrink: 0; margin-top: 0px;
+}
+.plan-cta {
+  width: 100%; padding: 14px;
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px;
+  transition: all 0.2s;
+}
+.plan-cta-outline {
+  background: transparent;
+  border: 0.5px solid rgba(200,169,110,0.4);
+  color: var(--gold);
+}
+.plan-cta-outline:hover { background: rgba(200,169,110,0.06); }
+.plan-cta-solid {
+  background: var(--gold); color: var(--onyx); border: 0.5px solid var(--gold);
+}
+.plan-cta-solid:hover { background: var(--gold-pale); }
+
+/* ── ABOUT ── */
+#about { background: var(--onyx); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-img-frame {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--onyx3);
+  border: 0.5px solid rgba(200,169,110,0.15);
+  overflow: hidden;
+}
+.about-img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; color: var(--muted); font-size: 13px;
+  background: linear-gradient(135deg, var(--onyx3), var(--faint));
+}
+.about-img-placeholder svg { opacity: 0.3; }
+.about-corner {
+  position: absolute; width: 20px; height: 20px;
+  border-color: rgba(200,169,110,0.4); border-style: solid; border-width: 0;
+}
+.about-corner.tl { top: 12px; left: 12px; border-top-width: 1px; border-left-width: 1px; }
+.about-corner.br { bottom: 12px; right: 12px; border-bottom-width: 1px; border-right-width: 1px; }
+.about-creds { display: flex; flex-direction: column; gap: 12px; margin: 32px 0; }
+.about-cred {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  background: var(--onyx2); border: 0.5px solid rgba(200,169,110,0.1);
+  border-radius: 2px;
+}
+.about-cred-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+.about-cred-text { font-size: 13px; color: var(--muted); }
+.about-cred-text strong { color: var(--offwhite); font-weight: 400; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { background: var(--onyx2); }
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.testi-card {
+  padding: 36px;
+  background: var(--onyx3);
+  border: 0.5px solid rgba(200,169,110,0.06);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.testi-stars { display: flex; gap: 4px; color: var(--gold); font-size: 13px; }
+.testi-quote { font-size: 14px; color: var(--offwhite); line-height: 1.7; font-style: italic; flex: 1; }
+.testi-quote::before { content: '"'; color: var(--gold); font-size: 24px; font-style: normal; display: block; margin-bottom: 4px; }
+.testi-meta { display: flex; align-items: center; gap: 14px; }
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--steel); border: 0.5px solid rgba(200,169,110,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 15px; color: var(--gold);
+  flex-shrink: 0;
+}
+.testi-name { font-size: 13px; color: var(--offwhite); font-weight: 400; }
+.testi-result { font-size: 11px; color: var(--gold); font-family: var(--font-mono); letter-spacing: 0.08em; }
+
+/* ── PROCESS ── */
+#process { background: var(--onyx); }
+.process-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; position: relative; }
+.process-steps::before {
+  content: ''; position: absolute; top: 36px; left: 16.66%; right: 16.66%;
+  height: 0.5px; background: linear-gradient(90deg, var(--gold), rgba(200,169,110,0.1), var(--gold));
+  z-index: 0;
+}
+.step {
+  padding: 48px 36px;
+  background: var(--onyx3);
+  position: relative; z-index: 1;
+}
+.step-num {
+  width: 48px; height: 48px; border: 0.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 12px; color: var(--gold);
+  margin-bottom: 28px; border-radius: 2px;
+  background: var(--onyx3);
+}
+.step-title {
+  font-family: var(--font-head); font-size: 22px; letter-spacing: 0.06em;
+  color: var(--offwhite); margin-bottom: 12px;
+}
+.step-text { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── FAQ ── */
+#faq { background: var(--onyx2); }
+.faq-list { max-width: 720px; }
+.faq-item {
+  border-bottom: 0.5px solid rgba(200,169,110,0.1);
+}
+.faq-q {
+  width: 100%; text-align: left; padding: 24px 0;
+  font-size: 15px; color: var(--offwhite); font-weight: 300;
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--gold); }
+.faq-q.open { color: var(--gold); }
+.faq-icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  border: 0.5px solid rgba(200,169,110,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--gold); border-radius: 2px;
+  transition: transform 0.3s;
+}
+.faq-q.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s var(--ease), padding 0.3s;
+  font-size: 14px; color: var(--muted); line-height: 1.75;
+}
+.faq-a.open { max-height: 300px; padding-bottom: 24px; }
+
+/* ── CONTACT ── */
+#contact { background: var(--onyx); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
+  color: var(--gold); text-transform: uppercase;
+}
+.form-input, .form-select, .form-textarea {
+  background: var(--onyx2); border: 0.5px solid rgba(200,169,110,0.15);
+  color: var(--offwhite); font-family: var(--font-body); font-size: 14px;
+  padding: 14px 16px; border-radius: 2px;
+  transition: border-color 0.2s;
+  outline: none; width: 100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: rgba(200,169,110,0.5);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+.form-select option { background: var(--onyx2); }
+.form-textarea { resize: none; height: 120px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit {
+  background: var(--gold); color: var(--onyx);
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 16px 32px; border-radius: 2px; border: none;
+  transition: all 0.2s; margin-top: 8px; align-self: flex-start;
+}
+.form-submit:hover { background: var(--gold-pale); }
+.form-success {
+  display: none; padding: 20px; background: rgba(200,169,110,0.08);
+  border: 0.5px solid rgba(200,169,110,0.3); border-radius: 2px;
+  font-size: 14px; color: var(--gold); text-align: center;
+}
+.contact-info { display: flex; flex-direction: column; gap: 32px; padding-top: 16px; }
+.contact-item { display: flex; flex-direction: column; gap: 6px; }
+.contact-item-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
+  color: var(--gold-dim); text-transform: uppercase;
+}
+.contact-item-val { font-size: 15px; color: var(--offwhite); }
+.wa-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #25D366; color: #fff;
+  font-size: 13px; font-weight: 500; padding: 14px 24px; border-radius: 2px;
+  transition: all 0.2s; margin-top: 8px;
+}
+.wa-btn:hover { background: #1da851; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--onyx2);
+  border-top: 0.5px solid rgba(200,169,110,0.1);
+  padding: 48px 5vw;
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-logo { font-family: var(--font-head); font-size: 22px; letter-spacing: 0.15em; color: var(--gold); }
+.footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer-links a { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { font-size: 11px; color: var(--muted); }
+
+/* ── FLOATING WA ── */
+.wa-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 200;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.3);
+  transition: all 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); background: #1da851; }
+.wa-float svg { width: 26px; height: 26px; fill: #fff; }
+.wa-float-label {
+  position: absolute; right: 64px; white-space: nowrap;
+  background: var(--onyx2); color: var(--offwhite);
+  font-size: 12px; padding: 6px 12px; border-radius: 2px;
+  border: 0.5px solid rgba(200,169,110,0.2);
+  opacity: 0; transform: translateX(8px); transition: all 0.2s;
+  pointer-events: none;
+}
+.wa-float:hover .wa-float-label { opacity: 1; transform: translateX(0); }
+
+/* ── MODAL CHECKOUT ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 300;
+  background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+  align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--onyx2);
+  border: 0.5px solid rgba(200,169,110,0.2);
+  border-radius: 4px;
+  width: 100%; max-width: 540px;
+  max-height: 90vh; overflow-y: auto;
+  padding: 48px;
+  position: relative;
+  animation: slideUp 0.4s var(--ease);
+}
+@keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.modal-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 32px; height: 32px;
+  border: 0.5px solid rgba(200,169,110,0.2);
+  border-radius: 2px; color: var(--muted); font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.modal-close:hover { color: var(--gold); border-color: rgba(200,169,110,0.5); }
+.modal-plan-badge {
+  display: inline-block; margin-bottom: 24px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
+  color: var(--gold); border: 0.5px solid rgba(200,169,110,0.3);
+  padding: 5px 12px; border-radius: 2px;
+}
+.modal-title { font-family: var(--font-head); font-size: 36px; color: var(--offwhite); margin-bottom: 6px; }
+.modal-price { font-family: var(--font-head); font-size: 28px; color: var(--gold); margin-bottom: 32px; }
+.modal-divider { height: 0.5px; background: rgba(200,169,110,0.12); margin: 24px 0; }
+.modal-stripe-note {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: var(--muted); margin-top: 16px;
+}
+.modal-stripe-note svg { flex-shrink: 0; }
+.stripe-btn {
+  width: 100%; padding: 16px;
+  background: var(--gold); color: var(--onyx);
+  font-family: var(--font-body); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px;
+  transition: all 0.2s; margin-top: 24px; border: none;
+}
+.stripe-btn:hover { background: var(--gold-pale); }
+.stripe-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── COOKIE BANNER ── */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 250;
+  background: var(--onyx2); border-top: 0.5px solid rgba(200,169,110,0.15);
+  padding: 20px 5vw;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  flex-wrap: wrap;
+  transform: translateY(100%); transition: transform 0.4s var(--ease);
+}
+.cookie-banner.visible { transform: translateY(0); }
+.cookie-text { font-size: 13px; color: var(--muted); max-width: 600px; line-height: 1.5; }
+.cookie-text a { color: var(--gold); }
+.cookie-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.cookie-reject {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 10px 20px; border: 0.5px solid rgba(200,169,110,0.2); border-radius: 2px;
+  transition: all 0.2s;
+}
+.cookie-reject:hover { color: var(--gold); }
+.cookie-accept {
+  font-size: 11px; color: var(--onyx); background: var(--gold); letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 10px 20px; border-radius: 2px; transition: all 0.2s;
+}
+.cookie-accept:hover { background: var(--gold-pale); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .plans-grid { grid-template-columns: repeat(2,1fr); }
+  .pillars-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width: 768px) {
+  nav { padding: 0 6vw; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-links.mobile-open {
+    display: flex; flex-direction: column; align-items: flex-start;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--onyx2); border-top: 0.5px solid rgba(200,169,110,0.1);
+    padding: 24px 6vw;
+  }
+  section { padding: 80px 6vw; }
+  .hero-stats { display: none; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 2px; }
+  .specs-grid { grid-template-columns: 1fr; }
+  .plans-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-steps::before { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .wa-float { bottom: 20px; right: 20px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .modal { padding: 32px 24px; }
+}
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-up:nth-child(4) { transition-delay: 0.3s; }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-dot"></div>
+    SCOPE
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#specialties">Especialidades</a>
+    <a href="#plans">Servicios</a>
+    <a href="#about">Sobre mí</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contacto</a>
+    <a href="#plans" class="nav-cta">Empieza ahora</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-crosshair">
+    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="120" stroke="#C8A96E" stroke-width="1"/>
+      <circle cx="150" cy="150" r="90" stroke="#C8A96E" stroke-width="0.5"/>
+      <line x1="0" y1="150" x2="120" y2="150" stroke="#C8A96E" stroke-width="0.8"/>
+      <line x1="180" y1="150" x2="300" y2="150" stroke="#C8A96E" stroke-width="0.8"/>
+      <line x1="150" y1="0" x2="150" y2="120" stroke="#C8A96E" stroke-width="0.8"/>
+      <line x1="150" y1="180" x2="150" y2="300" stroke="#C8A96E" stroke-width="0.8"/>
+      <circle cx="150" cy="150" r="6" fill="#C8A96E"/>
+      <circle cx="150" cy="150" r="3" fill="#0A0A0A"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-label">Strength & Conditioning Performance</p>
+    <h1 class="hero-h1">
+      Entrena con<br>
+      <em>ciencia.</em>
+      Rinde con<br>propósito.
+    </h1>
+    <p class="hero-sub">Entrenamiento personal de alto nivel basado en evidencia científica. Halterofilia, Hyrox, CrossFit y S&C para quienes van en serio.</p>
+    <div class="hero-actions">
+      <a href="#plans" class="btn-primary" onclick="openCheckout('elite')">
+        Empieza ahora
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#plans" class="btn-secondary">Ver planes</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">+200</div>
+      <div class="hero-stat-label">Atletas formados</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">6+</div>
+      <div class="hero-stat-label">Años de experiencia</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">Disciplinas</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="pillars-grid">
+    <div class="pillar fade-up">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">CIENCIA</div>
+      <p class="pillar-text">Cada decisión de entrenamiento tiene base en evidencia. Formación universitaria en Ciencias del Deporte aplicada a cada programa.</p>
+    </div>
+    <div class="pillar fade-up">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">EXPERIENCIA</div>
+      <p class="pillar-text">Conocimiento adquirido en el alto rendimiento. Lo que funciona en élite, adaptado a tu realidad y objetivos.</p>
+    </div>
+    <div class="pillar fade-up">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">RESULTADOS</div>
+      <p class="pillar-text">El resultado es la consecuencia natural de un método sólido. Sin atajos, sin humo. Solo trabajo bien hecho.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section id="specialties">
+  <p class="section-label">Especialidades</p>
+  <h2 class="section-title">LO QUE<br>ENTRENAMOS</h2>
+  <div class="gold-rule"></div>
+  <div class="specs-grid">
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 5v14M18 5v14M3 8h3M18 8h3M3 16h3M18 16h3"/></svg>
+      </div>
+      <div class="spec-title">S&C</div>
+      <p class="spec-text">Strength & Conditioning aplicado a cualquier contexto. Mejora tu fuerza, potencia y capacidad de trabajo de forma estructurada y progresiva.</p>
+      <div class="spec-tags">
+        <span class="spec-tag">Fuerza máxima</span>
+        <span class="spec-tag">Potencia</span>
+        <span class="spec-tag">Periodización</span>
+      </div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L8 8H3l4 4-1.5 6L12 15l6.5 3L17 12l4-4h-5L12 2z"/></svg>
+      </div>
+      <div class="spec-title">HALTEROFILIA</div>
+      <p class="spec-text">Técnica olímpica desde los fundamentos hasta la competición. Arrancada, dos tiempos y los movimientos derivados que transforman tu atletismo.</p>
+      <div class="spec-tags">
+        <span class="spec-tag">Arrancada</span>
+        <span class="spec-tag">Dos tiempos</span>
+        <span class="spec-tag">Técnica olímpica</span>
+      </div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/></svg>
+      </div>
+      <div class="spec-title">HYROX</div>
+      <p class="spec-text">Preparación específica para la competición más exigente de fitness funcional. Estrategia de carrera, gestión del esfuerzo y entrenamiento de las ocho estaciones.</p>
+      <div class="spec-tags">
+        <span class="spec-tag">Competición</span>
+        <span class="spec-tag">Cardio</span>
+        <span class="spec-tag">Funcional</span>
+      </div>
+    </div>
+    <div class="spec-card fade-up">
+      <div class="spec-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l4 4"/></svg>
+      </div>
+      <div class="spec-title">CROSSFIT</div>
+      <p class="spec-text">Entrenamiento funcional de alta intensidad con método. Sin WODs aleatorios: programación inteligente para mejorar de forma sostenida semana a semana.</p>
+      <div class="spec-tags">
+        <span class="spec-tag">Funcional</span>
+        <span class="spec-tag">Alta intensidad</span>
+        <span class="spec-tag">Programación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section id="plans">
+  <p class="section-label">Servicios</p>
+  <h2 class="section-title">ELIGE TU<br>PLAN</h2>
+  <p class="section-sub">Cuatro niveles de acompañamiento. Todos con la misma base científica, diferente grado de personalización.</p>
+  <div class="plans-grid">
+
+    <div class="plan-card fade-up">
+      <div class="plan-name">SCOPE CORE</div>
+      <div class="plan-subtitle">Programación genérica</div>
+      <div class="plan-price">30€</div>
+      <div class="plan-price-note">/mes · cancela cuando quieras</div>
+      <ul class="plan-features">
+        <li>Programa mensual estructurado</li>
+        <li>Base científica de S&C</li>
+        <li>App de seguimiento</li>
+        <li>Actualizaciones mensuales</li>
+        <li>Acceso a biblioteca de ejercicios</li>
+      </ul>
+      <button class="plan-cta plan-cta-outline" onclick="openCheckout('core')">Empezar con Core</button>
+    </div>
+
+    <div class="plan-card fade-up">
+      <div class="plan-name">SCOPE FOCUS</div>
+      <div class="plan-subtitle">Semipersonalizado</div>
+      <div class="plan-price">60€</div>
+      <div class="plan-price-note">/mes · cancela cuando quieras</div>
+      <ul class="plan-features">
+        <li>Todo lo de Core</li>
+        <li>Programa adaptado a tu perfil</li>
+        <li>Check-in quincenal por chat</li>
+        <li>Ajustes según evolución</li>
+        <li>Análisis de vídeo (2/mes)</li>
+      </ul>
+      <button class="plan-cta plan-cta-outline" onclick="openCheckout('focus')">Empezar con Focus</button>
+    </div>
+
+    <div class="plan-card featured fade-up">
+      <div class="plan-name">SCOPE ELITE</div>
+      <div class="plan-subtitle">100% individualizado</div>
+      <div class="plan-price">90€</div>
+      <div class="plan-price-note">/mes · cancela cuando quieras</div>
+      <ul class="plan-features">
+        <li>Todo lo de Focus</li>
+        <li>Programa 100% a tu medida</li>
+        <li>Seguimiento semanal</li>
+        <li>Acceso directo por WhatsApp</li>
+        <li>Análisis de vídeo ilimitado</li>
+        <li>Ajustes en tiempo real</li>
+      </ul>
+      <button class="plan-cta plan-cta-solid" onclick="openCheckout('elite')">Empezar con Elite</button>
+    </div>
+
+    <div class="plan-card fade-up">
+      <div class="plan-name">SCOPE CREW</div>
+      <div class="plan-subtitle">Entrenamiento grupal</div>
+      <div class="plan-price">150€</div>
+      <div class="plan-price-note">/grupo · sesión o pack mensual</div>
+      <ul class="plan-features">
+        <li>Grupos de hasta 6 personas</li>
+        <li>Misma calidad metodológica</li>
+        <li>Online o presencial</li>
+        <li>Programación de equipo</li>
+        <li>Ideal para boxes y grupos</li>
+      </ul>
+      <button class="plan-cta plan-cta-outline" onclick="openCheckout('crew')">Consultar Crew</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-frame fade-up">
+      <div class="about-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="0.8">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">Tu foto aquí</span>
+      </div>
+      <div class="about-corner tl"></div>
+      <div class="about-corner br"></div>
+    </div>
+    <div class="fade-up">
+      <p class="section-label">Sobre mí</p>
+      <h2 class="section-title">CIENCIA EN<br>CADA REP</h2>
+      <div class="gold-rule"></div>
+      <p style="font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:32px;">
+        Graduado en Ciencias del Deporte y con experiencia en el alto rendimiento, llevo años trabajando con atletas de todos los niveles bajo un mismo principio: el entrenamiento sin evidencia es solo suposición.<br><br>
+        SCOPE nació de la convicción de que el conocimiento de élite debe ser accesible para cualquier persona que quiera mejorar de verdad.
+      </p>
+      <div class="about-creds">
+        <div class="about-cred">
+          <div class="about-cred-dot"></div>
+          <div class="about-cred-text"><strong>Licenciado en Ciencias del Deporte</strong> — [Tu universidad]</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-dot"></div>
+          <div class="about-cred-text"><strong>Certificado NSCA-CSCS</strong> — Strength & Conditioning Specialist</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-dot"></div>
+          <div class="about-cred-text"><strong>Experiencia en alto rendimiento</strong> — [Club / Federación / Equipo]</div>
+        </div>
+        <div class="about-cred">
+          <div class="about-cred-dot"></div>
+          <div class="about-cred-text"><strong>Técnico de Halterofilia</strong> — Real Federación Española</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-label">Resultados</p>
+  <h2 class="section-title">LO QUE<br>DICEN</h2>
+  <div class="gold-rule"></div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">La programación de SCOPE es diferente a todo lo que había probado. Basada en datos, adaptada a mi vida real. En 4 meses mejoré mi arrancada 12 kg.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar">AG</div>
+        <div>
+          <div class="testi-name">Alejandro G.</div>
+          <div class="testi-result">+12 kg arrancada · 4 meses</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">Competí en mi primer Hyrox con una preparación de 16 semanas. El plan fue progresivo, inteligente y acabé dentro del tiempo objetivo. Brutal.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar">LM</div>
+        <div>
+          <div class="testi-name">Laura M.</div>
+          <div class="testi-result">1er Hyrox completado · objetivo cumplido</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">Llevaba años entrenando sin método real. Con SCOPE Elite entendí por primera vez por qué hacía cada ejercicio. Los resultados se notaron en 6 semanas.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar">CR</div>
+        <div>
+          <div class="testi-name">Carlos R.</div>
+          <div class="testi-result">-8 kg · fuerza máxima +20%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <p class="section-label">Proceso</p>
+  <h2 class="section-title">CÓMO<br>EMPEZAR</h2>
+  <div class="gold-rule"></div>
+  <div class="process-steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <div class="step-title">ELIGE TU PLAN</div>
+      <p class="step-text">Selecciona el nivel de acompañamiento que encaja con tus objetivos y tu ritmo de vida. Puedes cambiar de plan en cualquier momento.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <div class="step-title">DIAGNÓSTICO INICIAL</div>
+      <p class="step-text">Completamos un formulario de valoración: historial, objetivos, equipamiento disponible y limitaciones. La base de tu programa personalizado.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <div class="step-title">EMPIEZA A RENDIR</div>
+      <p class="step-text">Recibes tu programa en 48h, con vídeos de referencia, explicaciones técnicas y acceso directo para resolver cualquier duda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-label">FAQ</p>
+  <h2 class="section-title">PREGUNTAS<br>FRECUENTES</h2>
+  <div class="gold-rule"></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Necesito experiencia previa para empezar?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No. Los programas de SCOPE se adaptan a cualquier nivel. Tanto si empiezas desde cero como si llevas años entrenando, el diagnóstico inicial permite ajustar el programa a tu punto de partida real.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿El entrenamiento es online, presencial o ambos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Ambas modalidades están disponibles. El entrenamiento online es idéntico en calidad al presencial: recibes tu programa completo con vídeos, seguimiento y feedback. El presencial está disponible en [tu ciudad].</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuándo recibiré mi programa?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">En un máximo de 48 horas tras completar el formulario de diagnóstico inicial. En la mayoría de casos el turnaround es de 24 horas.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Puedo cancelar mi suscripción en cualquier momento?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Sí. No hay permanencia. Puedes cancelar tu suscripción mensual en cualquier momento desde tu panel de cliente con 7 días de antelación al próximo ciclo de facturación.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Qué equipamiento necesito?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Depende de tu objetivo y especialidad. En el formulario de diagnóstico indicas el equipamiento disponible y el programa se adapta a ello. Trabajamos con gimnasio completo, home gym o equipamiento mínimo.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Incluye nutrición?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Los planes de SCOPE están centrados en el entrenamiento. Ofrecemos orientaciones generales basadas en evidencia, pero la planificación nutricional detallada es un servicio complementario. Consulta disponibilidad.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿En qué países está disponible el servicio online?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">En todos los países hispanoparlantes: España, México, Argentina, Colombia, Chile, Perú, Venezuela, Ecuador, Bolivia, Paraguay, Uruguay, Cuba, República Dominicana, Guatemala y el resto de Latinoamérica.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ¿Cuál es la diferencia real entre Focus y Elite?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Focus incluye un programa adaptado a tu perfil con check-in quincenal. Elite es seguimiento semanal, acceso directo por WhatsApp, ajustes en tiempo real y análisis de vídeo ilimitado. Si el rendimiento es tu prioridad, Elite es la opción.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contacto</p>
+  <h2 class="section-title">HABLEMOS</h2>
+  <div class="gold-rule"></div>
+  <div class="contact-grid">
+    <div>
+      <p style="font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:40px;">¿Tienes dudas sobre qué plan encaja mejor contigo? ¿Quieres saber más antes de suscribirte? Escríbeme sin compromiso.</p>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-input" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="tu@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Objetivo principal</label>
+          <select class="form-select" required>
+            <option value="" disabled selected>Selecciona...</option>
+            <option>Cambio de composición corporal</option>
+            <option>Preparación Hyrox</option>
+            <option>Halterofilia / técnica olímpica</option>
+            <option>Mejorar en CrossFit</option>
+            <option>Fuerza y potencia (S&C)</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Modalidad preferida</label>
+          <select class="form-select">
+            <option>Online</option>
+            <option>Presencial</option>
+            <option>Ambas opciones me interesan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mensaje (opcional)</label>
+          <textarea class="form-textarea" placeholder="Cuéntame tu situación actual..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar mensaje →</button>
+        <div class="form-success" id="formSuccess">
+          Mensaje recibido. Te respondo en menos de 24h.
+        </div>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-item-label">Email</span>
+        <span class="contact-item-val">hola@scopeperformance.es</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">WhatsApp</span>
+        <a href="https://wa.me/34000000000" class="wa-btn" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Zona presencial</span>
+        <span class="contact-item-val">[Tu ciudad], España</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Disponibilidad online</span>
+        <span class="contact-item-val">Países hispanoparlantes</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Tiempo de respuesta</span>
+        <span class="contact-item-val" style="color:var(--gold);">Menos de 24 horas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">SCOPE</div>
+    <div class="footer-links">
+      <a href="#plans">Servicios</a>
+      <a href="#about">Sobre mí</a>
+      <a href="#contact">Contacto</a>
+      <a href="#" onclick="showLegal()">Política de privacidad</a>
+      <a href="#" onclick="showLegal()">Aviso legal</a>
+    </div>
+    <div class="footer-copy">© 2025 SCOPE Performance. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/34000000000" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <span class="wa-float-label">¿Hablamos?</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeCheckout()">✕</button>
+    <div class="modal-plan-badge" id="modalBadge">SCOPE ELITE</div>
+    <div class="modal-title" id="modalTitle">Empieza hoy</div>
+    <div class="modal-price" id="modalPrice">90€/mes</div>
+
+    <div class="modal-divider"></div>
+
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div class="form-group">
+        <label class="form-label">Nombre completo</label>
+        <input type="text" class="form-input" id="checkoutName" placeholder="Tu nombre" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" id="checkoutEmail" placeholder="tu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Teléfono (opcional)</label>
+        <input type="tel" class="form-input" id="checkoutPhone" placeholder="+34 600 000 000">
+      </div>
+    </div>
+
+    <div class="modal-divider"></div>
+
+    <p style="font-size:12px; color:var(--muted); line-height:1.6; margin-bottom:8px;">
+      Al hacer clic en "Ir al pago" serás redirigido a Stripe, la pasarela de pago más segura del mundo. Tu suscripción mensual se renueva automáticamente. Cancela cuando quieras.
+    </p>
+
+    <button class="stripe-btn" id="stripeBtn" onclick="goToStripe()">
+      Ir al pago seguro →
+    </button>
+
+    <div class="modal-stripe-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Pago 100% seguro con Stripe · SSL · Sin guardar datos de tarjeta
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">
+    Usamos cookies propias y de terceros para analizar el uso del sitio (Google Analytics) y mejorar tu experiencia. Puedes aceptar todas o solo las necesarias. <a href="#">Política de cookies</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-reject" onclick="rejectCookies()">Solo necesarias</button>
+    <button class="cookie-accept" onclick="acceptCookies()">Aceptar todas</button>
+  </div>
+</div>
+
+<script>
+// ── STRIPE PLAN CONFIG ─────────────────────────────────────────
+// Sustituye los payment_link por tus links reales de Stripe Dashboard
+const PLANS = {
+  core:  { name: 'SCOPE CORE',  price: '30€/mes',  badge: 'SCOPE CORE',  link: 'https://buy.stripe.com/TU_LINK_CORE' },
+  focus: { name: 'SCOPE FOCUS', price: '60€/mes',  badge: 'SCOPE FOCUS', link: 'https://buy.stripe.com/TU_LINK_FOCUS' },
+  elite: { name: 'SCOPE ELITE', price: '90€/mes',  badge: 'SCOPE ELITE', link: 'https://buy.stripe.com/TU_LINK_ELITE' },
+  crew:  { name: 'SCOPE CREW',  price: '150€/grupo',badge: 'SCOPE CREW', link: 'https://buy.stripe.com/TU_LINK_CREW' },
+};
+let currentPlan = 'elite';
+
+function openCheckout(plan) {
+  currentPlan = plan;
+  const p = PLANS[plan];
+  document.getElementById('modalBadge').textContent = p.badge;
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalPrice').textContent = p.price;
+  document.getElementById('checkoutModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckout() {
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function goToStripe() {
+  const name  = document.getElementById('checkoutName').value.trim();
+  const email = document.getElementById('checkoutEmail').value.trim();
+  if (!name || !email) {
+    alert('Por favor completa tu nombre y email antes de continuar.');
+    return;
+  }
+  const btn = document.getElementById('stripeBtn');
+  btn.disabled = true;
+  btn.textContent = 'Redirigiendo...';
+  const plan = PLANS[currentPlan];
+  const url  = `${plan.link}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(name)}`;
+  setTimeout(() => { window.location.href = url; }, 600);
+}
+
+// Close modal on overlay click
+document.getElementById('checkoutModal').addEventListener('click', function(e) {
+  if (e.target === this) closeCheckout();
+});
+
+// ── NAV ────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('mobile-open');
+  });
+});
+
+// ── FAQ ────────────────────────────────────────────────────────
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+
+// ── CONTACT FORM ───────────────────────────────────────────────
+function submitContact(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  // → Conecta aquí con tu backend, Formspree, Resend, etc.
+  // fetch('/api/contact', { method: 'POST', body: new FormData(e.target) })
+  setTimeout(() => {
+    document.getElementById('formSuccess').style.display = 'block';
+    btn.style.display = 'none';
+    e.target.reset();
+  }, 1000);
+}
+
+// ── SCROLL ANIMATIONS ──────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── COOKIES ────────────────────────────────────────────────────
+function showCookieBanner() {
+  if (!localStorage.getItem('scope_cookie_consent')) {
+    setTimeout(() => {
+      document.getElementById('cookieBanner').classList.add('visible');
+    }, 2000);
+  }
+}
+
+function acceptCookies() {
+  localStorage.setItem('scope_cookie_consent', 'all');
+  document.getElementById('cookieBanner').classList.remove('visible');
+  // → Aquí inicializa GA4: gtag('consent', 'update', { analytics_storage: 'granted' });
+}
+
+function rejectCookies() {
+  localStorage.setItem('scope_cookie_consent', 'necessary');
+  document.getElementById('cookieBanner').classList.remove('visible');
+}
+
+showCookieBanner();
+
+// ── LEGAL PLACEHOLDER ──────────────────────────────────────────
+function showLegal() {
+  alert('Sustituye este enlace por tu página de política de privacidad y aviso legal conforme a la RGPD.');
+}
+
+// ── HERO COUNTER ANIMATION ─────────────────────────────────────
+function animateCounter(el, target, suffix) {
+  let current = 0;
+  const step = target / 40;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = Math.floor(current) + suffix;
+  }, 30);
+}
+document.querySelectorAll('.hero-stat-num').forEach((el, i) => {
+  const vals = [200, 6, 4];
+  const suffs = ['+', '+', ''];
+  setTimeout(() => animateCounter(el, vals[i], suffs[i]), 800 + i * 200);
+});
+</script>
+</body>
+</html>
